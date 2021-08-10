@@ -1,0 +1,417 @@
+@import 'config';
+@import 'utilities';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background: $light-color;
+  color: $dark-color;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+// Header
+#home {
+  background: $header-home-image no-repeat center center/cover;
+  position: relative;
+  height: 100vh;
+  width: 100%;
+
+  .header-tagline {
+    color: $light-color;
+    text-align: center;
+    padding: 1rem;
+    display: none;
+  }
+
+  .main-nav {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $light-color;
+    transition: 0.7s;
+
+    .logo {
+      color: $light-color;
+      padding-left: 1rem;
+      font-size: 2rem;
+
+      .logo-color {
+        color: $primary-color;
+      }
+    }
+
+    ul {
+      display: flex;
+
+      li {
+        margin: 0 0.5rem;
+
+        a {
+          padding: 0.5rem 1rem;
+          font-size: 1.5rem;
+          font-weight: 800;
+          border-radius: 10px;
+          color: $light-color;
+
+          &:hover {
+            cursor: pointer;
+            background: $primary-color;
+          }
+        }
+      }
+    }
+  }
+
+  // Main Nav sticky on Scroll
+  .sticky {
+    position: fixed;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.7);
+    top: 0;
+    left: 0;
+  }
+}
+
+// Mobile Menu Open
+#home .main-nav .btn-mobile-open {
+  font-size: 40px;
+  line-height: 40px;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-right: 0.5rem;
+  display: none;
+
+  &:hover {
+    background-color: $secondary-color;
+  }
+}
+
+// Mobile Overlay
+#nav-overlay {
+  width: 100%;
+  height: 0;
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.9);
+  transition: 0.5s;
+  overflow-y: hidden;
+  // display: none;
+
+  .btn-mobile-close {
+    font-size: 70px;
+    line-height: 70px;
+    align-self: flex-end;
+    margin: 1rem 1rem 0 0;
+    color: $light-color;
+    cursor: pointer;
+
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+
+
+  .overlay-content {
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+
+    a {
+      display: block;
+      color: $light-color;
+      font-size: 2.25rem;
+      margin: 10px 0;
+      transition: 0.3s;
+
+      &:hover {
+        color: $secondary-color;
+      }
+    }
+  }
+}
+
+// Contact Me Modal
+#contact-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: 0.5s;
+  display: none;
+
+  .modal-content {
+    background: $light-color;
+    padding: 1rem;
+    margin: 3rem auto 0 auto;
+    max-width: 760px;
+
+    .btn-contact-close {
+      color: $dark-color;
+      font-size: 2.5rem;
+      line-height: 2.5rem;
+      font-weight: 800;
+      float: right;
+      cursor: pointer;
+
+      &:hover {
+        color: $secondary-color;
+      }
+    }
+
+    #contact-form {
+      margin-top: 1rem;
+
+      .form-fields {
+        display: grid;
+        grid-gap: 1.2rem;
+        grid-template-areas:
+          'name email'
+          'subject phone'
+          'message message'
+          'recaptcha submit';
+
+        // Grid Areas
+        .name-input {
+          grid-area: name;
+        }
+
+        .subject-input {
+          grid-area: subject;
+        }
+
+        .email-input {
+          grid-area: email;
+        }
+
+        .phone-input {
+          grid-area: phone;
+        }
+
+        .message-input {
+          grid-area: message;
+        }
+
+        .form-recaptcha {
+          grid-area: recaptcha;
+        }
+
+        .form-submit {
+          grid-area: submit;
+          width: 100%;
+        }
+
+        .text-input {
+          padding: 0.5rem 1rem;
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+}
+
+// Gallery Section
+#gallery {
+
+  h1 {
+    padding: 1rem;
+    font-size: 2rem;
+    text-align: center;
+    color: $dark-color;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    grid-gap: 2rem;
+
+    .showcase-image {
+      // The syntax is grid-row-start / grid-column-start / grid-row-end / grid-column-end.
+      grid-area: 1 / 2 / 3 / 4;
+    }
+
+    .lightbox-enabled {
+      width: 100%;
+      object-fit: cover;
+      transition: $gallery-transition;
+
+      &:hover {
+        opacity: 0.8;
+        cursor: zoom-in;
+        transform: scale(1.03);
+      }
+    }
+  }
+
+  .lightbox-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $white-faded;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    z-index: 3;
+    opacity: 0;
+    pointer-events: none;
+    transition: $gallery-transition;
+
+    &.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .lightbox-image-wrapper {
+      display: grid;
+      place-items: center;
+      max-width: 90vh;
+      max-height: 90vh;
+      position: relative;
+      box-shadow: 3px 3px 10px $dark-faded;
+
+      .lightbox-image {
+        height: 90vh;
+        width: 100%;
+        object-fit: cover;
+        cursor: zoom-out;
+      }
+
+      .lightbox-btn {
+        border: none;
+        border-radius: 5px;
+        background-color: $white-faded;
+        display: grid;
+        place-items: center;
+        padding: 0.8rem;
+        color: $dark-color;
+        cursor: pointer;
+        transition: $gallery-transition;
+        position: absolute;
+
+        i {
+          font-size: 2rem;
+        }
+
+        &.inactive {
+          opacity: 0;
+          pointer-events: none;
+        }
+
+        &:focus {
+          outline: none;
+        }
+
+        &.left {
+          left: 5px;
+
+          &:hover,
+          &:focus {
+            left: 0px;
+          }
+        }
+
+        &.right {
+          right: 5px;
+
+          &:hover,
+          &:focus {
+            right: 0px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+#about {
+  margin-bottom: 1rem;
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+
+    .about-image {
+      background: $about-image no-repeat center center/contain;
+      border-radius: 5px;
+      min-height: 400px;
+    }
+
+    .about-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      padding: 1rem;
+
+      h1 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+
+// Footer
+#footer {
+  background: $dark-color;
+  color: $light-color;
+  text-align: center;
+  padding: 1.2rem;
+
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p {
+      font-size: 1.3rem;
+      padding: 0.3rem;
+
+      a {
+        padding: 0.5rem 1rem;
+        font-size: 1.5rem;
+        font-weight: 800;
+        border-radius: 10px;
+        color: $light-color;
+
+        &:hover {
+          cursor: pointer;
+          background: $primary-color;
+        }
+      }
+    }
+  }
+}
+
+@import 'media';

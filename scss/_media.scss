@@ -1,0 +1,109 @@
+// Tablets & Smaller
+@media (max-width: 800px) {
+  #home {
+    .main-nav {
+      a h1 {
+        font-size: 1.5rem;
+      }
+
+      ul {
+        li {
+          a {
+            font-size: 1rem;
+            padding: 0.75rem 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Smartphones
+@media (max-width: 500px) {
+
+  // Home
+  #home {
+    .main-nav {
+      .logo {
+        font-size: 2rem;
+
+        // .logo-color {}
+      }
+
+      ul {
+        display: none;
+      }
+
+      .btn-mobile-open {
+        display: inline;
+      }
+    }
+
+  }
+
+  // Contact Me Modal
+  #contact-modal {
+    .modal-content {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      overflow-y: scroll;
+
+      #contact-form {
+        .form-fields {
+          grid-template-areas:
+            'name'
+            'email'
+            'subject'
+            'phone'
+            'message'
+            'recaptcha'
+            'submit';
+
+          .message-input {
+            height: 10rem;
+          }
+        }
+      }
+    }
+  }
+
+  // Gallery Section
+  #gallery {
+    .gallery-grid {
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 1rem;
+
+      .showcase-image {
+        // The syntax is grid-row-start / grid-column-start / grid-row-end / grid-column-end.
+        grid-area: auto;
+      }
+    }
+  }
+
+  // About
+  #about {
+    .about-grid {
+      grid-template-columns: 1fr;
+      grid-gap: 1rem;
+    }
+  }
+
+  // Footer 
+  #footer {
+    .footer-container {
+      flex-direction: column;
+
+      p {
+        font-size: 1.1rem;
+
+        a {
+          font-size: 1.3rem;
+        }
+      }
+    }
+  }
+}
+
+// Landscape
+// @media(max-height: 580px) {}
