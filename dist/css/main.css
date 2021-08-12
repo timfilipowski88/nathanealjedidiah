@@ -40,8 +40,7 @@ a {
   #home .header-tagline {
     color: #fff;
     text-align: center;
-    margin-top: 2rem;
-    padding: 1rem; }
+    padding-top: 3rem; }
   #home .main-nav {
     position: absolute;
     bottom: 0;
@@ -271,6 +270,15 @@ a {
       #about .about-grid .about-card h1 {
         font-size: 1.5rem;
         margin-bottom: 1rem; }
+      #about .about-grid .about-card a {
+        padding: 0.5rem 1rem;
+        font-size: 1.5rem;
+        font-weight: 800;
+        border-radius: 10px;
+        color: #fff; }
+        #about .about-grid .about-card a:hover {
+          cursor: pointer;
+          background: #1dd2e4; }
 
 #footer {
   background: #333;
@@ -305,7 +313,7 @@ a {
   #home {
     height: 80vh; }
     #home .header-tagline {
-      margin-top: 1.5rem; }
+      padding-top: 1.5rem; }
     #home .main-nav .logo {
       font-size: 1.6rem; }
     #home .main-nav ul {
