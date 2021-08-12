@@ -40,8 +40,7 @@ a {
   #home .header-tagline {
     color: #fff;
     text-align: center;
-    padding: 1rem;
-    display: none; }
+    padding: 1rem; }
   #home .main-nav {
     position: absolute;
     bottom: 0;
@@ -303,9 +302,9 @@ a {
 
 @media (max-width: 500px) {
   #home {
-    height: 80vh; }
+    height: 90vh; }
     #home .main-nav .logo {
-      font-size: 2rem; }
+      font-size: 1.3rem; }
     #home .main-nav ul {
       display: none; }
     #home .main-nav .btn-mobile-open {
