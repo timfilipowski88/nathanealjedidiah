@@ -23,11 +23,15 @@
 
   // Home
   #home {
-    height: 90vh;
+    height: 80vh;
+
+    .header-tagline {
+      margin-top: 1.5rem;
+    }
 
     .main-nav {
       .logo {
-        font-size: 1.3rem;
+        font-size: 1.6rem;
 
         // .logo-color {}
       }

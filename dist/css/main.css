@@ -40,6 +40,7 @@ a {
   #home .header-tagline {
     color: #fff;
     text-align: center;
+    margin-top: 2rem;
     padding: 1rem; }
   #home .main-nav {
     position: absolute;
@@ -302,9 +303,11 @@ a {
 
 @media (max-width: 500px) {
   #home {
-    height: 90vh; }
+    height: 80vh; }
+    #home .header-tagline {
+      margin-top: 1.5rem; }
     #home .main-nav .logo {
-      font-size: 1.3rem; }
+      font-size: 1.6rem; }
     #home .main-nav ul {
       display: none; }
     #home .main-nav .btn-mobile-open {
